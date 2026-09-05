@@ -7,13 +7,17 @@
     "start": "webpack-dev-server --open --config configs/webpack.dev.js",
     "build:dev": "webpack --config configs/webpack.dev.js -d",
     "build:prod": "webpack --config configs/webpack.prod.js",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "test": "jest",
     "test:update-snapshot": "jest --updateSnapshot",
     "version": "echo $npm_package_version"
   },
   "author": "",
   "license": "",
+  "engines": {
+    "node": "14.x",
+    "npm": ">=6 <10"
+  },
   "dependencies": {
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
