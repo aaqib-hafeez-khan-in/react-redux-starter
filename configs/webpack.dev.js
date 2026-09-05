@@ -1,4 +1,3 @@
-var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
 
@@ -24,7 +23,6 @@ module.exports = {
       {
         context: ["/api"],
         target: "https://commerce-develop.app.os-t1.swi.srse.net",
-        // target: "http://localhost:8080",
         secure: false,
         changeOrigin: true,
       },
@@ -54,10 +52,6 @@ module.exports = {
         loader: "style-loader/useable!css",
       },
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader",
-      },
-      {
         test: /\.scss$/,
         loader: "style-loader!css-loader!sass-loader",
       },
@@ -76,19 +70,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        issuer: (e) => {
-          // Use @svgr/webpack for .ts|.tsx files.
-          return new RegExp(/\.ts(x?)$/).test(e);
-        },
-        use: ["@svgr/webpack"],
-      },
-      {
-        test: /\.svg$/,
-        issuer: (e) => {
-          // Use file-loader for non .ts|.tsx files.
-          return !new RegExp(/\.ts(x?)$/).test(e);
-        },
-        use: ["file-loader"],
+        loader: "file-loader",
       },
       {
         test: /\.(png|jpe?g|gif|jp2|webp)$/,
